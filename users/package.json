@@ -1,12 +1,25 @@
 {
-  "name": "users",
+  "name": "UserMicroservice",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "User's Miscroservice for a barricaded security ",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "server": "cross-env DEBUG=platolio:* nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Stephen Myles <stephen_myles@yahoo.com>",
-  "license": "ISC"
+  "author": "Steven Daye <dev.stevendaye@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "restify": "^8.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.1"
+  }
 }
