@@ -1,0 +1,29 @@
+{
+  "port": 4040,
+  "db": {
+    "mongoURI": "mongodb://localhost/platolio-users"
+  },
+  "routes": {
+    "user": {
+      "register": "/users/register",
+      "update": "/users/update/:email",
+      "find": "/users/find/:email",
+      "findById": "/users/find/id/:userid",
+      "destroy": "/users/destroy/:userid",
+      "checkpassword": "/users/check/password",
+      "list": "/users",
+      "profile": {
+        "current": "/users/profile/:userid",
+        "create": "/users/profile/create",
+        "find": "/users/profile/find/:userid",
+        "update": "/users/profile/update",
+        "updateExperience": "/users/profile/update/experience",
+        "removeExperience": "/users/profile/remove/experience/:userid/:expid",
+        "updateEducation": "/users/profile/update/education",
+        "removeEducation": "/users/profile/remove/education/:userid/:eduid",
+        "destroy": "/users/profile/destroy/:userid",
+        "list": "/users/profiles"
+      }
+    }
+  }
+}

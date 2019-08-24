@@ -1,4 +1,58 @@
 {
   "port": "8080",
-  "mongoURI": "mongodb://localhost/platolio"
+  "db": {
+    "mongoURI": "mongodb://localhost/platolio"
+  },
+  "host": {
+    "platform": "process.env.PLATOLIO_HOST || http://localhost:8080",
+    "users": "process.env.USER_SERVICE_HOST || http://localhost:4040"
+  },
+  "routes": {
+    "user": {
+      "register": "/users/register",
+      "update": "/users/update",
+      "find": "/users/find",
+      "findById": "/users/find/id",
+      "destroy": "/users/destroy",
+      "checkpassword": "/users/check/password",
+      "login": "/users/login",
+      "logout": "/users/logout",
+      "list": "/users",
+      "profile": {
+        "current": "/users/profile",
+        "create": "/users/profile/create",
+        "find": "/users/profile/find",
+        "update": "/users/profile/update",
+        "updateExperience": "/users/profile/update/experience",
+        "removeExperience": "/users/profile/remove/experience",
+        "updateEducation": "/users/profile/update/education",
+        "removeEducation": "/users/profile/remove/education",
+        "destroy": "/users/profile/destroy",
+        "list": "/users/profiles"
+      }
+    },
+    "post": {
+      "add": "/posts/add",
+      "read": "/posts/read",
+      "edit": "/posts/edit",
+      "like": "/posts/like",
+      "unlike": "/posts/unlike",
+      "addComment": "/posts/comments/add",
+      "removeComment": "/posts/comments/remove",
+      "destroy": "/posts/destroy",
+      "list": "/posts"
+    }
+  },
+  "auth": {
+    "jwtToken": "myscretjsonwebtoken",
+    "githubAuth": "/users/auth/github",
+    "githubAuthCallback": "/users/auth/github/callback",
+    "linkedinAuth": "/users/auth/linkedin",
+    "linkedinAuthCallback": "/users/auth/linkedin/callback"
+  },
+  "github": {
+    "clientId": "process.env.GITHUB_CLIENT_ID",
+    "clientSecret": "process.env.GITHUB_CLIENT_SECRET"
+  },
+  "linkedin": {}
 }

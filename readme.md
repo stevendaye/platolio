@@ -23,3 +23,17 @@ and Node, forming the MERN Stack. However, because I am looking for new challeng
  - SSL/TSL
  - Third Party Authentication Services
  - Grunt, Postman, chai, Enzyme and many more that I might be missing in this list
+
+# Running The Project
+  /*Platform*/
+  - cd platform
+  - npm i
+  - npm run server(in one console, but make sure the user microservice bellows is running in another first)
+
+  /*Users*/
+  - cd users
+  - npm i
+  - npm run server
+
+# Important Notes
+Make sure your are running an instance of MongoDB

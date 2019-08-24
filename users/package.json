@@ -4,16 +4,33 @@
   "description": "User's Miscroservice for a barricaded security ",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "cross-env DEBUG=platolio:* nodemon --exec babel-node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "PORT=4040 node server.js",
+    "server": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node server.js",
+    "start-add-user": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node scripts/add-user.js",
+    "start-find-user": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node scripts/find-user.js jameskila@gmail.com",
+    "start-update-user": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node scripts/update-user.js steevegrider@gmail.com",
+    "start-delete-user": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node scripts/delete-user.js jameshash@yahoo.com",
+    "start-list-users": "cross-env DEBUG=platolio-users:* PORT=4040 nodemon --exec babel-node scripts/list-users.js"
   },
   "keywords": [],
   "author": "Steven Daye <dev.stevendaye@yahoo.com>",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.2",
     "debug": "^4.1.1",
-    "restify": "^8.4.0"
+    "fs-extra": "^8.1.0",
+    "gravatar": "^1.8.0",
+    "js-yaml": "^3.13.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
+    "mongoose": "^5.6.9",
+    "mysql": "^2.17.1",
+    "restify": "^8.4.0",
+    "restify-clients": "^2.6.7",
+    "restify-errors": "^8.0.1",
+    "sequelize": "^5.12.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
