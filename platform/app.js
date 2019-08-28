@@ -10,7 +10,6 @@ import path from "path";
 import config from "config";
 import { notFound, err } from "./middlewares/errorhandler";
 import * as log from "./middlewares/log";
-// import { dbType } from "./models/posts/posts-model-type";
 import connectDB from "./config/db";
 import homeRoutes from "./routes/index";
 import usersRoutes from "./routes/users";
@@ -21,9 +20,7 @@ const app = express();
 const server = http.createServer(app);
 const port = normalizePort(process.env.PORT || config.get("port"));
 
-// if (dbType === "MongoDB") {
-  connectDB();
-// }
+connectDB();
 
 const debug = DBG("platolio:server-app");
 const error = DBG("platolio:error-app");
