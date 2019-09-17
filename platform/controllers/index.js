@@ -11,7 +11,7 @@ export default {
       res.json(user.sanitize);
       debug(`find user: ${user}`);
     } catch (err) {
-      error(`An error occured when getting the user of id ${req.user.id}`);
+      error(`An error occurred when getting the user of id ${req.user.id}`);
       res.status(500).send("Server Error");
     }
   }
