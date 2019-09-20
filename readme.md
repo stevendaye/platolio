@@ -5,7 +5,7 @@ Platolio is a light-weight platform build for developers, where each developer c
 # Why Platolio
 Unlike the Raddict App which I concentrated much of my time using on the frontend Handelbars.js and its Helpers, here I will be using
 React. After Learning React & Redux and seeing how much I was limited by Handlebars.js and imagining all the potential and power I
-can unleash on the frontend using these technologies, I decided to build Platolio using mainly React & Redux.
+can unleash on the frontend using these technologies, I decided to build Platolio using mainly React & Redux on the front-end.
 At the same time, I am buidling this to put together as well the following technolgies I learned seperately: MongoDB, Express, React
 and Node, forming the MERN Stack. However, because I am looking for new challenges, I aim to add much more features than in Raddict.
 
@@ -18,9 +18,9 @@ and Node, forming the MERN Stack. However, because I am looking for new challeng
  - Docker
  - Webpack
  - Babel
- - Microservices (my new favourite way of developping apps)
+ - Microservices (My favourite way of developing web apps)
  - TDD & BDD
- - SSL/TSL
+ - SSL
  - Third Party Authentication Services
  - Grunt, Postman, chai, Enzyme and many more that I might be missing in this list
 
@@ -28,7 +28,7 @@ and Node, forming the MERN Stack. However, because I am looking for new challeng
   /*Platform*/
   - cd platform
   - npm i
-  - npm run server(in one console, but make sure the user microservice bellows is running in another first)
+  - npm run dev(Make sure the user microservice bellow is first running in another termimal)
 
   /*Users*/
   - cd users
@@ -36,4 +36,4 @@ and Node, forming the MERN Stack. However, because I am looking for new challeng
   - npm run server
 
 # Important Notes
-Make sure your are running an instance of MongoDB
+To test this project, you must make sure your are running an instance of MongoDB or simply visit soon https://www.platolio.co

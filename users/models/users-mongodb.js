@@ -91,7 +91,7 @@ async function checkPassword(email, password) {
     return {
       check: false,
       email: email,
-      message: "Password Incorrect!"
+      message: "Invalid Credentials"
     };
   }
 }
