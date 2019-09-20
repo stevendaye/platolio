@@ -4,10 +4,10 @@ import * as utils from "../middlewares/utilities";
 
 const router = express.Router();
 
-const postsRoutes = (app) => {
+const homeRoutes = app => {
   router.get("/", utils.checkAuthentication, home.index);
   
   app.use(router);
 };
 
-export default postsRoutes;
+export default homeRoutes;

@@ -206,7 +206,7 @@ export default {
       await ProfileModel.destroy(req.user.id);
       await UserModel.destroy(req.user.id);
       debug(`User ${req.user.id} deleted!`);
-      res.json("We are sorry that you are leaving us! Account Successfully Deleted."); 
+      res.json("We are sorry that you are leaving us. Account Successfully Deleted."); 
     } catch (err) {
       error(err.stack);
       res.status(500).send(`Server Error! Something got wrong when deleted user account`);

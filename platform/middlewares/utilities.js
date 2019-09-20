@@ -12,7 +12,7 @@ const checkAuthentication = (req, res, next) => {
   const token = req.header("x-auth-token");
 
   if (!token) {
-    return res.status(401).json({ message: "No Token, Authorization Denied" });
+    return res.status(401).json({ message: "No Token. Authorization Denied" });
   }
   try {
     const decoded = jwt.verify(token, config.get("auth.jwtToken"));
