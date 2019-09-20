@@ -1,7 +1,7 @@
 /* Create User API */
 import axios from "axios";
 
-const INDEX_URL = "/";
+const INDEX_URL = "/index";
 const BASE_URL = "/users/register";
 
 const registerUser = async (name, email, password) => {

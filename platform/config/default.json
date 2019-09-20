@@ -8,6 +8,7 @@
     "users": "process.env.USER_SERVICE_HOST || http://localhost:4040"
   },
   "routes": {
+    "index": "/index",
     "user": {
       "register": "/users/register",
       "update": "/users/update",

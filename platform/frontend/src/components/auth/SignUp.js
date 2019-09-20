@@ -20,10 +20,6 @@ class SignUp extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.nameInput && this.nameInput.focus();
-  }
-
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }

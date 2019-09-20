@@ -24,10 +24,10 @@ const doRegisterUserWithErrorCheck = (name, email, password) => {
 
 // Then loads the user info after checking if the sent token is available in the header from the local storage;
 const doLoadUserWithErrorCheck = () => {
+  if (localStorage.token) {
+    setAuthTokenHeader(localStorage.token);
+  }
   return async function(dispatch) {
-    if (localStorage.token) {
-      setAuthTokenHeader(localStorage.token);
-    }
     try {
       const res = await getUser();
       dispatch(doLoadUser(res.data));
