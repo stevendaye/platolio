@@ -1,5 +1,5 @@
-import { REGISTER_SUCCESS, REGISTER_FAIL,
-  USER_LOADED, AUTH_TOKEN_ERROR
+import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_TOKEN_ERROR,
+  LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT
 } from "../constants/actionTypes";
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
   isLoading: false
 }
 
-const applyRegisterSuccess = (state, payload) => {
+const applyAuthenticateSuccess = (state, payload) => {
   localStorage.setItem("token", payload.token);
   return {
     ...state,
@@ -18,7 +18,7 @@ const applyRegisterSuccess = (state, payload) => {
   }
 };
 
-const applyLoadUserInSotre = (state, payload) => {
+const applyLoadUser = (state, payload) => {
   return {
     ...state,
     isAuthenticated: true,
@@ -26,7 +26,7 @@ const applyLoadUserInSotre = (state, payload) => {
   }
 }
 
-const applyRegisterFail = (state, payload) => {
+const applyAuthenticateFail = (state, payload) => {
   localStorage.removeItem("token");
   return {
     ...state,
@@ -39,12 +39,15 @@ const authReducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case REGISTER_SUCCESS:
-      return applyRegisterSuccess(state, payload);
+    case LOGIN_SUCCESS:
+      return applyAuthenticateSuccess(state, payload);
     case USER_LOADED:
-      return applyLoadUserInSotre(state, payload);
+      return applyLoadUser(state, payload);
     case REGISTER_FAIL:
+    case LOGIN_FAIL:
+    case LOGOUT:
     case AUTH_TOKEN_ERROR:
-      return applyRegisterFail(state, payload);
+      return applyAuthenticateFail(state, payload);
     default:
       return state;
   }

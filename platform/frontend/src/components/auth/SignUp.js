@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import doSetRemoveNotification from "../../thunks/notifications";
 import doRegisterUserWithErrorCheck from "../../thunks/register";
@@ -29,13 +29,17 @@ class SignUp extends Component {
     if (password !== confirmPass) {
       this.props.onSetNotification("Passwords do not match", "danger");
     } else {
-      this.props.onRegisterUser(name, email, password);
+      this.props.onRegister(name, email, password);
     }
   }
 
   render () {
+    const { isAuthenticated } = this.props;
     const { name, email, password, confirmPass } = this.state;
 
+    if (isAuthenticated) {
+      return <Redirect to = "/dashboard"/>
+    }
     return (
       <Fragment>
         <h1 className = "large text-primary">Sign Up</h1>
@@ -100,18 +104,23 @@ class SignUp extends Component {
 
 SignUp.propTypes = {
   onSetNotification: PropTypes.func.isRequired,
-  onRegisterUser: PropTypes.func.isRequired
+  onRegister: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
+
+const mapStateToPropsSignUp = state => ({
+  isAuthenticated: state.authState.isAuthenticated
+});
 
 const mapDispatchToPropsSignUp = dispatch => {
   return {
     onSetNotification: (message, alert) =>
       dispatch(doSetRemoveNotification(message, alert)),
-    onRegisterUser: (name, email, password) =>
+    onRegister: (name, email, password) =>
       dispatch(doRegisterUserWithErrorCheck(name, email, password))
   };
 }
 
-const ConnectedSignUp = connect(null, mapDispatchToPropsSignUp)(SignUp);
+const ConnectedSignUp = connect(mapStateToPropsSignUp, mapDispatchToPropsSignUp)(SignUp);
 
 export default ConnectedSignUp;

@@ -1,5 +1,8 @@
 import React, { Fragment, Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import doLoginUserWithErrorCheck from "../../thunks/login";
+import PropTypes from "prop-types";
 
 class Login extends Component {
 
@@ -18,12 +21,18 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   async onSubmit(e) {
+    const { email, password } = this.state;
     e.preventDefault();
-    console.log("SUCCESS");
+    this.props.onLogin(email, password);
   }
 
   render () {
     const { email, password } = this.state;
+    const { isAuthenticated } = this.props;
+
+    if (isAuthenticated) {
+      return <Redirect to = "/dashboard"/>
+    }
 
     return (
       <Fragment>
@@ -63,4 +72,21 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
+}
+
+const mapStateToPropsLogin = state => ({
+  isAuthenticated: state.authState.isAuthenticated
+});
+
+const mapDisptachToPropsLogin = dispatch => {
+  return {
+    onLogin: (email, password) => dispatch(doLoginUserWithErrorCheck(email, password))
+  }
+};
+
+const ConnectedLogin = connect(mapStateToPropsLogin, mapDisptachToPropsLogin)(Login);
+
+export default ConnectedLogin;

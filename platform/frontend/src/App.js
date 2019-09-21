@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import { Provider } from "react-redux";
-import Navbar from "./components/layout/Navbar";
+import ConnectedNavbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import ConnectedSignUp from "./components/auth/SignUp";
 import ConnectedLogin from "./components/auth/Login";
@@ -25,7 +25,7 @@ const App = () => {
     <Provider store = {store}>
       <Router>
         <Fragment>
-          <Navbar />
+          <ConnectedNavbar />
           <Route exact path="/" component={ Landing } />
           <section className="container">
             <ConnectedNotifications />
