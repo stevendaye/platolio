@@ -6,6 +6,7 @@ import DBG from "debug";
 import util from "util";
 import * as ProfileModel from "../models/users/profile-queries";
 import * as UserModel from "../models/users/users-queries";
+import * as PostModel from "../models/posts/posts-mongodb"
 
 const debug = DBG("platolio:debug-profiles_controllers");
 const error = DBG("platolio:error-profiles_controllers");
@@ -86,7 +87,7 @@ export default {
 
   async find(req, res, next) {
     try {
-      const profile = await ProfileModel.find(req.params._id);
+      const profile = await ProfileModel.find(req.params.userid);
       if (profile.found) {
         debug(`Profile found -- ${util.inspect(profile)}`);
         return res.json(profile.current);
@@ -189,7 +190,7 @@ export default {
   },
 
   // @access Private
-  // @route DELTE /users/profile/remove/education/:edu_id
+  // @route DELETE /users/profile/remove/education/:edu_id
   async removeEducation(req, res, next) {
     try {
       const profile = await ProfileModel.removeEducation(req.user.id, req.params.edu_id);
@@ -201,12 +202,20 @@ export default {
     }
   },
 
+  // @access Private
+  // @route DELETE /users/profile/destroy
+  // @description "Destroy User account, profile and posts"
   async destroy(req, res, next) {
     try {
-      await ProfileModel.destroy(req.user.id);
+      const post = await PostModel.findByUserId(req.user.id);
+
       await UserModel.destroy(req.user.id);
+      await ProfileModel.destroy(req.user.id);
+      if (post) {
+        await PostModel.destroy(req.user.id);
+      }
+      res.json({ message: "We are sorry that you are leaving us. Account Successfully Deleted."}); 
       debug(`User ${req.user.id} deleted!`);
-      res.json("We are sorry that you are leaving us. Account Successfully Deleted."); 
     } catch (err) {
       error(err.stack);
       res.status(500).send(`Server Error! Something got wrong when deleted user account`);

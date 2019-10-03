@@ -171,7 +171,7 @@ export default {
         if (post.userid.toString() !== req.user.id) {
           return res.status(401).json({ message: "User not authorized" });
         }
-        await PostModel.destroy(req.params.post_id);
+        await PostModel.del(req.params.post_id);
       } else {
         return res.status(404).json({ message: post.message });
       }

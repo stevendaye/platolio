@@ -67,11 +67,5 @@ export default {
       error(err.stack);
       res.status(500).send("Server Error! Something got wrong when logging in the user!");
     }
-  },
-
-  // @access Private
-  // @route GET /users/logout
-  async logout(req, res, next) {
-    
   }
 }
