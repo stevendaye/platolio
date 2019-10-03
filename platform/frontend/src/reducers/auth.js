@@ -1,12 +1,12 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_TOKEN_ERROR,
-  LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT
-} from "../constants/actionTypes";
+  DELETE_ACCOUNT, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT
+} from "../constants/types";
 
 const initialState = {
   user: null,
   token: localStorage.getItem("token"),
   isAuthenticated: null,
-  isLoading: false
+  isLoading: true
 }
 
 const applyAuthenticateSuccess = (state, payload) => {
@@ -14,7 +14,8 @@ const applyAuthenticateSuccess = (state, payload) => {
   return {
     ...state,
     ...payload,
-    isAuthenticated: true
+    isAuthenticated: true,
+    isLoading: false
   }
 };
 
@@ -22,7 +23,8 @@ const applyLoadUser = (state, payload) => {
   return {
     ...state,
     isAuthenticated: true,
-    user: payload
+    user: payload,
+    isLoading: false
   }
 }
 
@@ -31,7 +33,8 @@ const applyAuthenticateFail = (state, payload) => {
   return {
     ...state,
     token: null,
-    isAuthenticated: false
+    isAuthenticated: false,
+    isLoading: false
   }
 };
 
@@ -47,6 +50,7 @@ const authReducer = (state = initialState, action) => {
     case LOGIN_FAIL:
     case LOGOUT:
     case AUTH_TOKEN_ERROR:
+    case DELETE_ACCOUNT:
       return applyAuthenticateFail(state, payload);
     default:
       return state;

@@ -1,9 +1,9 @@
-import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from "../constants/actionTypes";
+import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from "../constants/types";
 
 const initialState = {};
 
 const applySetNotification = (state, payload) => {
-  const { id, message, alert } = payload;
+  const { id } = payload;
   return { ...state, [id]: payload };
 };
 

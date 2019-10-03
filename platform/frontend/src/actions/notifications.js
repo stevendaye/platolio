@@ -1,4 +1,4 @@
-import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from "../constants/actionTypes";
+import { SET_NOTIFICATION, REMOVE_NOTIFICATION } from "../constants/types";
 
 const doSetNotification = (id, message, alert) => {
   return {

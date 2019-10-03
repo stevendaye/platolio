@@ -1,6 +1,6 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, AUTH_TOKEN_ERROR,
   LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT
-} from "../constants/actionTypes";
+} from "../constants/types";
 
 // Register Action Creators
 const doRegisterSuccess = payload => {
