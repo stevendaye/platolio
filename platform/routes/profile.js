@@ -14,7 +14,7 @@ const profilesRoutes = app => {
   ], profile.create);
   
   router.get(config.get("routes.user.profile.current"), utils.checkAuthentication, profile.findCurrent);
-  router.get(config.get("routes.user.profile.find") + "/:_id", profile.find);
+  router.get(config.get("routes.user.profile.find") + "/:userid", profile.find);
   
   router.put(config.get("routes.user.profile.updateExperience"), [utils.checkAuthentication, [
     check("title", "Title is required").not().isEmpty(),

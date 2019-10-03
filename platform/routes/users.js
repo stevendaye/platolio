@@ -17,8 +17,6 @@ const usersRoutes = app => {
     check("email", "Please provide a valid email").isEmail(),
     check("password", "Password is required").exists()
   ], user.login);
-
-  router.get(config.get("routes.user.logout"), utils.checkAuthentication, user.logout);
   
   app.use(router);
 };
