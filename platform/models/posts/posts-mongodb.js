@@ -81,6 +81,11 @@ async function read(postid) {
   return post;
 }
 
+async function findByUserId(userid) {
+  const post = await Post.findOne({ userid });
+  return post;
+}
+
 async function like(userid, postid) {
   const post = await Post.findById({ _id: postid });
   post.likes.unshift({ userid: userid });
@@ -111,8 +116,16 @@ async function removeComment(postid, userid) {
   return post;
 }
 
-async function destroy(postid) {
+async function del(postid) {
   const post = await Post.findById({ _id: postid });
+  await post.remove();
+}
+
+async function destroy(userid) {
+  const post = await Post.find({ userid });
+  if (!post) {
+    throw new Error(`No posts for user id ${userid} found`);
+  }
   await post.remove();
 }
 
@@ -121,4 +134,6 @@ async function list() {
   return post;
 }
 
-export { create, update, read, find, like, unlike, addComment, removeComment, destroy, list };
+export { create, update, read, find, findByUserId, like, unlike,
+  addComment, removeComment, destroy, del, list
+};
