@@ -86,7 +86,7 @@ class SignUp extends Component {
               type = "password"
               placeholder = "Confirm Password"
               name = "confirmPass"
-              minLengthb = "6"
+              minLength = "6"
               value = {confirmPass}
               onChange = { this.onChange }
               required

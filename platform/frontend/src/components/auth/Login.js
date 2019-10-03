@@ -36,11 +36,11 @@ class Login extends Component {
 
     return (
       <Fragment>
-        <h1 class="large text-primary">Sign In</h1>
-        <p class="lead"><i class="fas fa-user"></i> Sign Into Your Account</p>
+        <h1 className = "large text-primary">Sign In</h1>
+        <p className = "lead"><i className = "fas fa-user"></i> Sign Into Your Account</p>
 
-        <form class="form" onSubmit={ this.onSubmit }>
-          <div class="form-group">
+        <form className = "form" onSubmit={ this.onSubmit }>
+          <div className = "form-group">
             <input
               type = "email"
               placeholder = "Email Address"
@@ -51,7 +51,7 @@ class Login extends Component {
               required
             />
           </div>
-          <div class="form-group">
+          <div className = "form-group">
             <input
               type = "password"
               placeholder = "Password"
@@ -62,9 +62,9 @@ class Login extends Component {
               required
             />
           </div>
-          <input type="submit" class="btn btn-primary" value="Sign In" />
+          <input type="submit" className = "btn btn-primary" value="Sign In" />
         </form>
-        <p class="my-1">
+        <p className = "my-1">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </Fragment>
@@ -74,7 +74,7 @@ class Login extends Component {
 
 Login.propTypes = {
   onLogin: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool
 }
 
 const mapStateToPropsLogin = state => ({
