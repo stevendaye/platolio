@@ -46,6 +46,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// Server static assests in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+
+}
+
 process.on("uncaughtException", err => {
   error(`I crashed! - ${(err.stack || err)}`);
 });
