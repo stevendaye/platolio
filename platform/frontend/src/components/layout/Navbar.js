@@ -15,6 +15,12 @@ const Navbar = ({ auth: { isAuthenticated, isLoading, user }, onLogout }) => {
         </Link>
       </li>
       <li>
+        <Link to = "/posts">
+          <i className = "fas fa-edit"></i>
+          &nbsp; Posts
+        </Link>
+      </li>
+      <li>
         <Link to = "/dashboard">
         <i className = "fas fa-user"></i>{" "}
         <span>{ user && user.name.split(" ")[0] }</span>
