@@ -35,7 +35,7 @@ const PostItem = ({ auth, post: {_id, text, name, avatar, userid, likes, comment
                 <i className = "fas fa-thumbs-down"></i>
               </button>
               <Link to = {`/posts/${_id}`} className = "btn btn-primary">
-                Discussion {" "} {comments.length > 0 && (
+                Comment {" "} {comments.length > 0 && (
                   <span className = "comment-count">{comments.length}</span>
                 )}
               </Link>

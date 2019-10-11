@@ -19,7 +19,7 @@ const Post = ({ onGetSinglePost, match, post: { post, isLoading } }) => {
         ? <Spinner/>
         : (
           <div>
-            <Link to = "/posts" className = "btn">Back To Posts</Link>
+            <Link to = "/posts" className = "btn btn-back">Back To Posts</Link>
             <PostItem post = {post} displayActions = {false} />
             <CommentForm postid = {post._id} />
             <Comments postid= {post._id} comments = {post.comments} />

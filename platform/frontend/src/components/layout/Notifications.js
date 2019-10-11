@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 const Notifications = ({ notifications }) =>
   notifications !== null && notifications.length > 0 &&
   <div>
-    {notifications.map(note =>
-      <div key = {note.id} className = {`alert alert-${note.alert}`}>
-        {note.message}
+    {notifications.map(notification =>
+      <div key = {notification.id} className = {`alert alert-${notification.alert}`}>
+        {notification.message}
       </div>
     )}
   </div>
@@ -35,3 +35,4 @@ function getArrayOfObject(object) {
 const ConnectedNotifications = connect(mapStateToPropsNotifications)(Notifications);
 
 export default ConnectedNotifications;
+export { getArrayOfObject };

@@ -7,7 +7,7 @@ import { doGetGithubReposWithErrorCheck } from "../../thunks/profile";
 const ProfileGithub = ({ username, onGetGithubRepos, repos }) => {
   useEffect(() => {
     onGetGithubRepos(username);
-  }, [onGetGithubRepos], username);
+  }, [onGetGithubRepos, username]);
 
   return (
     <div className = "profile-github">
@@ -15,32 +15,34 @@ const ProfileGithub = ({ username, onGetGithubRepos, repos }) => {
         ? <Spinner />
         : (
           <div>
-            <h2 className = "text-primary">Repositories</h2>
+            <h2 className = "text-primary">Github Repositories</h2>
             {repos.map(repo => (
-              <div key = {repo.id} className = "repo bg-white p-1 my-1">
-                <div>
-                  <h4>
-                    <a
-                      className = ""
-                      href = {repo.html_url}
-                      target = "_blank"
-                      rel = "noopener noreferrer"
-                    >
-                      {repo.name}
-                    </a>
-                  </h4>
-                  <p>{repo.description}</p>
+              <div  style = {{border: "#ccc solid 1px", marginBottom: "10px", borderRadius: "4px"}}>
+                <div key = {repo.id} className = "repo bg-white p-1 my-1" style = {{border: "none"}}>
+                  <div>
+                    <h4>
+                      <a
+                        className = ""
+                        href = {repo.html_url}
+                        target = "_blank"
+                        rel = "noopener noreferrer"
+                      >
+                        {repo.name}
+                      </a>
+                    </h4>
+                    <p>{repo.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <ul>
-                    <li className = "badge badge-primary">
-                      Stars: {repo.stargazers_count}
+                <div style = {{fontFamily: "Arial"}}>
+                  <ul className = "repo-info">
+                    <li className = "stars">
+                      stars: {repo.stargazers_count}
                     </li>
-                    <li className = "badge badge-dark">
-                      Watchers: {repo.watchers_count}
+                    <li className = "watchers">
+                      watchers: {repo.watchers_count}
                     </li>
-                    <li className = "badge badge-primary">
-                      Forks: {repo.forks_count}
+                    <li className = "forks">
+                      forks: {repo.forks_count}
                     </li>
                   </ul>
                 </div>

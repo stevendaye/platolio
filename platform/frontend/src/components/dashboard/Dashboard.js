@@ -19,7 +19,7 @@ const Dashboard = ({ onGetProfile, onDeleteAcount, auth : { user }, profile: { p
       ? <Spinner/>
       : <Fragment>
         <div>
-          <h1 className = "large text-primary"> Dashboard </h1>
+          <h1 className = "large text-primary" style = {{marginTop: "15px"}}> Dashboard </h1>
           <p className = "lead">
             <i className = "fas fa-user" style = {{ marginRight: "5px" }}></i>
             Welcome { user && user.name }

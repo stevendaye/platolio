@@ -1,7 +1,7 @@
 /* Create User API */
 import axios from "axios";
 
-const INDEX_URL = "/index";
+const AUTH_URL = "/auth";
 const BASE_URL = "/users/register";
 
 const registerUser = async (name, email, password) => {
@@ -17,7 +17,7 @@ const registerUser = async (name, email, password) => {
 };
 
 const getUser = async () => {
-  return await axios.get(INDEX_URL);
+  return await axios.get(AUTH_URL);
 }
 
 export default registerUser;

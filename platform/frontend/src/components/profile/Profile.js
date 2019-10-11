@@ -19,13 +19,13 @@ const Profile = ({onGetProfileById, auth, profile: { profile, isLoading }, match
     <Fragment>
       { profile === null || isLoading
         ? <Spinner />
-        : <Fragment>
-            <Link to = "/profiles" className = "btn btn-light">
-              Back To Profiles
+        : <Fragment  style = {{marginTop: "20px"}}>
+            <Link to = "/profiles" className = "btn btn-light btn-back">
+              Back to Profiles
             </Link>
             { auth.isAuthenticated && isLoading === false && auth.user._id === profile.userid._id
-              && (<Link to = "/profile/edit" className = "btn btn-dark">
-                Edit Profile
+              && (<Link to = "/profile/edit" className = "btn btn-dark btn-update">
+                Update Profile
               </Link>)
             }
             <div className = "profile-grid my-1">

@@ -1,4 +1,5 @@
 /* Created fat thunks to call the register api while cheking for errors */
+import { doSetInvalidEntries, doSetValidEntries, doClearEntriesFeedback } from "../actions/entries";
 import registerUser, { getUser } from "../apis/register";
 import doSetRemoveNotification from "../thunks/notifications";
 import { doRegisterSuccess, doRegisterFail, doLoadUser, doSetAuthError } from "../actions/auth";
@@ -11,10 +12,13 @@ const doRegisterUserWithErrorCheck = (name, email, password) => {
       const res = await registerUser(name, email, password);
       dispatch(doRegisterSuccess(res.data));
       dispatch(doLoadUserWithErrorCheck());
+      dispatch(doSetValidEntries("Valid Entries"));
+      dispatch(doClearEntriesFeedback());
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
         errors.forEach(error => dispatch(doSetRemoveNotification(error.message || error.msg, "danger")));
+        dispatch(doSetInvalidEntries("Invalid Entries"));
       }
       dispatch(doRegisterFail());
     }

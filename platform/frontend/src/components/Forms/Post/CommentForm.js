@@ -1,30 +1,33 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { doAddCommentWithErrorCheck } from "../../../thunks/post";
 
 const CommentForm = ({postid, onAddComment}) => {
+  useEffect(() =>{
+    document.getElementById("comment-text").focus();
+  }, []);
   const [text, onSetText] = useState("");
 
   const onSubmit = e => {
     e.preventDefault();
-    onAddComment(postid, { text });
-    onSetText("");
+    if (document.getElementById("comment-text") !== " ") {
+      onAddComment(postid, { text: text.trim() });
+      onSetText("");
+    }
   };
 
   return (
     <Fragment>
       <div className = "post-form">
-        <div className = "bg-primary p">
-          <h3>Leave a comment...</h3>
-        </div>
         <form className = "form my-1" onSubmit = {e => onSubmit(e)}>
           <textarea
+          id = "comment-text"
           style = { { marginBottom: "10px" } }
           name = "text"
           cols = "30"
           rows = "5"
-          placeholder = "type your text"
+          placeholder = "Leave a comment..."
           value = {text}
           onChange = {e => onSetText(e.target.value)} required></textarea>
           <input type = "submit" className = "btn btn-dark ny-1" value = "Comment" />
