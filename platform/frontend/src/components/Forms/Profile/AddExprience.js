@@ -54,58 +54,60 @@ class AddExperience extends Component {
 
     return (
       <Fragment>
-        <h1 className = "large text-primary" style = {{marginTop: "15px"}}>
-          Add An Experience
-        </h1>
-        <div style = {{background: "rgba(154, 154, 154, .1)", padding: "25px", borderRadius: "4px"}}>
-          <p className = "lead">
-            <i className = "fas fa-code-branch"></i> &nbsp;
-            Add any developer/programming positions that you have had in the past
-          </p>
-          <small>* = required field</small>
-          <form className = "form" onSubmit = { this.onSubmit }>
-            <div className = "form-group">
-              <input type = "text" placeholder = "* Job Title" name = "title" required
-              value = { title } onChange = { this.onChange } />
-            </div>
-            <div className = "form-group">
-              <input type = "text" placeholder = "* Company" name = "company" required
-              value = { company } onChange = { this.onChange } />
-            </div>
-            <div className = "form-group">
-              <input type = "text" placeholder = "Location" name = "location"
-              value = { location } onChange = { this.onChange } />
-            </div>
-            <div className = "form-group">
-              <h4>From Date</h4>
-              <input type = "date" name = "from"
-              value = { from } onChange = { this.onChange } />
-            </div>
-            <div className = "form-group">
-              <p>
-                <input type = "checkbox" name = "current" 
-                value = { current } onChange = { this.onChecked } />
-                Current Job
-              </p>
-            </div>
-            <div className = "form-group">
-              <h4>To Date</h4>
-              <input type = "date" name = "to" value = { to } 
-              onChange = { this.onChange } disabled = { current ? "disabled" : "" } />
-            </div>
-            <div className = "form-group">
-              <textarea name = "description" cols="30" rows="5" placeholder = "Job Description"
-              value = { description } onChange = { this.onChange }></textarea>
-            </div>
-            <input
-              type = {submitted ? "button" : "submit"}
-              id = "addExp"
-              className = {submitted ? "btn btn-dim my-1" : "btn btn-primary my-1"}
-              value = {submitted ? "Adding Experience..." : "Add"}
-            />
-            {submitted && <i className = "fas fa-circle-notch fa-spin"></i>}&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link className = "btn btn-dark my-1" to = "/dashboard"> Go Back </Link>
-          </form>
+        <div className = "wrap-set-bottom">
+          <h1 className = "large text-primary" style = {{marginTop: "15px"}}>
+            Add An Experience
+          </h1>
+          <div style = {{background: "rgba(154, 154, 154, .1)", padding: "25px", borderRadius: "4px"}}>
+            <p className = "lead">
+              <i className = "fas fa-code-branch"></i> &nbsp;
+              Add any developer/programming positions that you have had in the past
+            </p>
+            <small>* = required field</small>
+            <form className = "form" onSubmit = { this.onSubmit }>
+              <div className = "form-group">
+                <input type = "text" placeholder = "* Job Title" name = "title" required
+                value = { title } onChange = { this.onChange } />
+              </div>
+              <div className = "form-group">
+                <input type = "text" placeholder = "* Company" name = "company" required
+                value = { company } onChange = { this.onChange } />
+              </div>
+              <div className = "form-group">
+                <input type = "text" placeholder = "Location" name = "location"
+                value = { location } onChange = { this.onChange } />
+              </div>
+              <div className = "form-group">
+                <h4>From Date</h4>
+                <input type = "date" name = "from"
+                value = { from } onChange = { this.onChange } />
+              </div>
+              <div className = "form-group">
+                <p>
+                  <input type = "checkbox" name = "current" 
+                  value = { current } onChange = { this.onChecked } />
+                  Current Job
+                </p>
+              </div>
+              <div className = "form-group">
+                <h4>To Date</h4>
+                <input type = "date" name = "to" value = { to } 
+                onChange = { this.onChange } disabled = { current ? "disabled" : "" } />
+              </div>
+              <div className = "form-group">
+                <textarea name = "description" cols="30" rows="5" placeholder = "Job Description"
+                value = { description } onChange = { this.onChange }></textarea>
+              </div>
+              <input
+                type = {submitted ? "button" : "submit"}
+                id = "addExp"
+                className = {submitted ? "btn btn-dim my-1" : "btn btn-primary my-1"}
+                value = {submitted ? "Adding Experience..." : "Add"}
+              />
+              {submitted && <i className = "fas fa-circle-notch fa-spin"></i>}&nbsp;&nbsp;&nbsp;&nbsp;
+              <Link className = "btn btn-dark my-1" to = "/dashboard"> Go Back </Link>
+            </form>
+          </div>
         </div>
       </Fragment>
     );

@@ -24,16 +24,18 @@ const App = () => {
     <Provider store = {store}>
       <Router>
         <Fragment>
-          <Navbar />
-          <Switch>
-            <Route exact path = "/" component = { Landing } />
-            <Route component = { Routes } />
-          </Switch>
-          <Footer />
+          <div className = "main">
+            <Navbar />
+            <Switch>
+              <Route exact path = "/" component = { Landing } />
+              <Route component = { Routes } />
+            </Switch>
+            <Footer />
+          </div>
         </Fragment>
       </Router>
     </Provider>
-  )
+  );
 }
 
 export default App;

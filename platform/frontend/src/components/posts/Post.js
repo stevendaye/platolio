@@ -18,7 +18,7 @@ const Post = ({ onGetSinglePost, match, post: { post, isLoading } }) => {
       {isLoading || post === null
         ? <Spinner/>
         : (
-          <div>
+          <div className = "wrap-set-bottom">
             <Link to = "/posts" className = "btn btn-back">Back To Posts</Link>
             <PostItem post = {post} displayActions = {false} />
             <CommentForm postid = {post._id} />

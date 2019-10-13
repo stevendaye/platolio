@@ -9,7 +9,7 @@ const Comments = ({ postid, comments, onRemoveComment, auth : {user, isLoading} 
   <Fragment>
     <div className = "comments">
       {comments.map(comment => (
-        <div className = "post bg-white p-1 my-1">
+        <div className = "post bg-white p-1 my-1" id = { comment._id }>
           <div>
             <Link to = {`/profile/${comment.userid}`} >
               <img className = "round-img" alt = "" src = {comment.avatar} />

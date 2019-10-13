@@ -15,8 +15,8 @@ const Posts = ({ onGetPosts, posts: { posts, isLoading } }) => {
     <Fragment>
       { isLoading
         ? <Spinner />
-        : (
-          <div>
+        : ( 
+          <div className = "wrap-set-bottom">
             <h1 className = "large text-primary" style = {{marginTop: "15px"}}>Posts</h1>
             <p className = "lead">
               <i className = "fas fa-user">Welcome to the community</i>

@@ -9,6 +9,7 @@ const Experience = ({ experience, onRemoveExperience }) => {
 
   return (
     <Fragment>
+      <div id = "top"></div>
       <h2 className = "my-2"> Experience Credentials </h2>
       <table className = "table">
         <span style = {{marginLeft: "17px", display: "block"}}>
@@ -28,20 +29,24 @@ const Experience = ({ experience, onRemoveExperience }) => {
                   }
                 </td>
                 <td className = "hide-sm">
-                  <button
-                  className = "btn btn-danger"
-                  onClick = { () => { onRemoveExperience(exp._id) } }
-                  >
-                    <i className = "fas fa-trash-alt"></i>
-                  </button>
+                  <a href = "#top">
+                    <button
+                    className = "btn btn-danger" style = {{ borderRadius: "19px" }}
+                    onClick = { () => { onRemoveExperience(exp._id) } }
+                    >
+                      <i className = "fas fa-trash-alt"></i>
+                    </button>
+                  </a>
                 </td>
               </tr>
-              <button
-              className = "btn btn-danger btn-delete"
-              onClick = { () => { onRemoveExperience(exp._id) } }
-              >
-                <i className = "fas fa-trash-alt"></i>
-              </button>
+              <a href = "#top">
+                <button
+                className = "btn btn-danger btn-delete"
+                onClick = { () => { onRemoveExperience(exp._id) } }
+                >
+                  <i className = "fas fa-trash-alt"></i>
+                </button>
+              </a>
             </span>
           )}
         </tbody>

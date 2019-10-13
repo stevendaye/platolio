@@ -5,7 +5,7 @@ import doLoginUserWithErrorCheck from "../../thunks/login";
 import PropTypes from "prop-types";
 
 class Login extends Component {
-  _isChecked = false;
+  _isMounted = false;
 
   constructor(props) {
     super(props);

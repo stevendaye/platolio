@@ -9,6 +9,7 @@ const Education = ({ education, onRemoveEducation }) => {
 
   return (
     <Fragment>
+      <div id = "top"></div>
       <h2 className = "my-2"> Education Credentials </h2>
       <table className = "table">
         <span style = {{display: "block", marginLeft: "17px"}}>
@@ -28,20 +29,24 @@ const Education = ({ education, onRemoveEducation }) => {
                   }
                 </td>
                 <td className = "hide-sm">
-                  <button
-                  className = "btn btn-danger"
-                  onClick = { () => { onRemoveEducation(edu._id) } }
-                  >
-                    <i className = "fas fa-trash-alt"></i>
-                  </button>
+                  <a href = "#top">
+                    <button
+                    className = "btn btn-danger" style = {{ borderRadius: "19px" }}
+                    onClick = { () => { onRemoveEducation(edu._id) } }
+                    >
+                      <i className = "fas fa-trash-alt"></i>
+                    </button>
+                  </a>
                 </td>
               </tr>
-              <button
-              className = "btn btn-danger btn-delete"
-              onClick = { () => { onRemoveEducation(edu._id) } }
-              >
-                <i className = "fas fa-trash-alt"></i>
-              </button>
+              <a href = "#top">
+                <button
+                className = "btn btn-danger btn-delete"
+                onClick = { () => { onRemoveEducation(edu._id) } }
+                >
+                  <i className = "fas fa-trash-alt"></i>
+                </button>
+              </a>
             </span>
           )}
         </tbody>

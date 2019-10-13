@@ -36,4 +36,5 @@ and Node, forming the MERN Stack. However, because I am looking for new challeng
   - npm run server
 
 # Important Notes
-To test this project, you must make sure your are running an instance of MongoDB or simply visit soon https://www.platolio.co
+To test this project, you must make sure your are running an instance of MongoDB or simply visit:
+ * https://platolio.herokuapp.com

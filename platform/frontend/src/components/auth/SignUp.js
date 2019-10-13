@@ -8,7 +8,6 @@ import { getArrayOfObject } from "../layout/Notifications";
 
 class SignUp extends Component {
   _isMounted = false;
-  _isChecked = false;
 
   constructor(props) {
     super(props);
@@ -18,8 +17,9 @@ class SignUp extends Component {
       email: "",
       password: "",
       confirmPass: "",
-      submitted: false
-    }
+      submitted: false,
+      rerender: false
+    };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);

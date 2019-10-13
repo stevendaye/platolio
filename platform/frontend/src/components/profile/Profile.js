@@ -19,57 +19,59 @@ const Profile = ({onGetProfileById, auth, profile: { profile, isLoading }, match
     <Fragment>
       { profile === null || isLoading
         ? <Spinner />
-        : <Fragment  style = {{marginTop: "20px"}}>
-            <Link to = "/profiles" className = "btn btn-light btn-back">
-              Back to Profiles
-            </Link>
-            { auth.isAuthenticated && isLoading === false && auth.user._id === profile.userid._id
-              && (<Link to = "/profile/edit" className = "btn btn-dark btn-update">
-                Update Profile
-              </Link>)
-            }
-            <div className = "profile-grid my-1">
-              <ProfileTop profile = { profile } />
-              <ProfileAbout profile = { profile } />
-              <div className = "profile-exp bg-white p-2">
-                <h2 className = "text-primary">Experience</h2>
-                <Fragment>
-                  {profile.experience.length > 0
-                    ? <Fragment>
-                        {profile.experience.map(experience => (
-                          <ProfileExperience
-                            key = {experience._id}
-                            experience = { experience }
-                          />
-                        ))}
-                      </Fragment>
-                    : (
-                      <h4>No experience was added</h4>
-                    )
-                  }
-                </Fragment>
-              </div>
-              <div className = "profile-edu bg-white p-2">
-                <h2 className = "text-primary">Education</h2>
-                <Fragment>
-                  {profile.education.length > 0
-                    ? <Fragment>
-                        {profile.education.map(education => (
-                          <ProfileEducation
-                            key = {education._id}
-                            education = { education }
-                          />
-                        ))}
-                      </Fragment>
-                    : (
-                      <h4>No education was added</h4>
-                    )
-                  }
-                </Fragment>
-              </div>
-              {profile.githubusername &&
-                <ProfileGithub username = {profile.githubusername} />
+        : <Fragment>
+            <div className = "wrap-set-bottom" style = {{marginTop: "20px"}}>
+              <Link to = "/profiles" className = "btn btn-light btn-back">
+                Back to Profiles
+              </Link>
+              { auth.isAuthenticated && isLoading === false && auth.user._id === profile.userid._id
+                && (<Link to = "/profile/edit" className = "btn btn-dark btn-update">
+                  Update Profile
+                </Link>)
               }
+              <div className = "profile-grid my-1">
+                <ProfileTop profile = { profile } />
+                <ProfileAbout profile = { profile } />
+                <div className = "profile-exp bg-white p-2">
+                  <h2 className = "text-primary">Experience</h2>
+                  <Fragment>
+                    {profile.experience.length > 0
+                      ? <Fragment>
+                          {profile.experience.map(experience => (
+                            <ProfileExperience
+                              key = {experience._id}
+                              experience = { experience }
+                            />
+                          ))}
+                        </Fragment>
+                      : (
+                        <h4>No experience was added</h4>
+                      )
+                    }
+                  </Fragment>
+                </div>
+                <div className = "profile-edu bg-white p-2">
+                  <h2 className = "text-primary">Education</h2>
+                  <Fragment>
+                    {profile.education.length > 0
+                      ? <Fragment>
+                          {profile.education.map(education => (
+                            <ProfileEducation
+                              key = {education._id}
+                              education = { education }
+                            />
+                          ))}
+                        </Fragment>
+                      : (
+                        <h4>No education was added</h4>
+                      )
+                    }
+                  </Fragment>
+                </div>
+                {profile.githubusername &&
+                  <ProfileGithub username = {profile.githubusername} />
+                }
+              </div>
             </div>
           </Fragment>
       }
