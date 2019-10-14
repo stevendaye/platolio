@@ -1,7 +1,7 @@
 {
   "name": "platolio",
-  "version": "1.0.0",
-  "description": "Light Social Network For Developers",
+  "version": "2.1.0",
+  "description": "Light Social Network For Professionals",
   "main": "server.js",
   "scripts": {
     "start": "USER_MICROSERVICE_URL=http://localhost:4040 node app.js",

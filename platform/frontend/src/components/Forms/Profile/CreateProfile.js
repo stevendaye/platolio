@@ -76,7 +76,7 @@ const CreateProfile = ({ onCreateProfile, history }) => {
           <form className = "form" onSubmit = { e => onSubmit(e) }>
             <div className = "form-group">
               <select name = "status" value= {status} onChange = { e => onChange(e) || onSetOther(e) } >
-                <option value = "0"> * Select Professional Status </option>
+              <option value = "0"> * Select Professional Status </option>
                 <option value = "Full Stack Developer"> Full Stack Developer </option>
                 <option value = "UX/UI Developer"> UX/UI Developer </option>
                 <option value = "Frontend Developer"> Frontend Developer </option>
@@ -85,9 +85,16 @@ const CreateProfile = ({ onCreateProfile, history }) => {
                 <option value = "Junior Developer"> Junior Developer </option>
                 <option value = "Senior Developer"> Senior Developer </option>
                 <option value = "DevOps Engineer"> DevOps Engineer </option>
-                <option value = "Manager"> Manager </option>
-                <option value = "Student or Learning"> Student or Learning </option>
-                <option value = "Instructor"> Instructor or Teacher </option>
+                <option value = "Manager"> Project Manager </option>
+                <option value = "Electrical Engineer"> Electrical Engineer </option>
+                <option value = "Security Network Engineer"> Security Network Engineer </option>
+                <option value = "Student or Learning"> Student </option>
+                <option value = "Accountant"> Accountant </option>
+                <option value = "Secretary"> Secretary </option>
+                <option value = "Medical Doctor"> Medical Doctor </option>
+                <option value = "Nurse"> Nurse </option>
+                <option value = "Recruiter"> Recruiter </option>
+                <option value = "Instructor"> Instructor </option>
                 <option value = "Intern"> Intern </option>
                 <option value = "Other"> Other </option>
               </select>
@@ -129,9 +136,10 @@ const CreateProfile = ({ onCreateProfile, history }) => {
               </small>
             </div>
             <div className = "form-group">
+              <small className = "form-text">Developers Only</small>
               <input
                 type = "text"
-                placeholder = "Github Username"
+                placeholder = "If you have a github username, please provide one here!"
                 name = "githubusername"
                 value = {githubusername} onChange = { e => onChange(e) }/>
               <small className = "form-text">

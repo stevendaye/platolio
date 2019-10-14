@@ -40,7 +40,7 @@ const Dashboard = ({ onGetProfile, onDeleteAcount, auth : { user }, profile: { p
                 </div>
               </Fragment>
             : <Fragment>
-                <p>You have no profile setup. Create one to interact with other developers</p>
+                <p>You have no profile setup. Create one to interact with other professionals</p>
                 <Link to = "/profile/create" className = "btn btn-primary my-1">
                   Create Profile
                 </Link>

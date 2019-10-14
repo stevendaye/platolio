@@ -1,6 +1,6 @@
-# Platolio | A Light-weight platform build for Developers
+# Platolio | A Light-weight platform build for Developers & Professionals 
 
-Platolio is a light-weight platform build for developers, where each developer can see its dashboard and connect with other devs.
+Platolio is a light-weight platform build for developers & professionals, where each professional can see its dashboard and connect with other professionals & developers.
 
 # Why Platolio
 Unlike the Raddict App which I concentrated much of my time using on the frontend Handelbars.js and its Helpers, here I will be using
